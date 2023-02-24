@@ -25,6 +25,7 @@ router.get("/hotel", async (req, res) => {
       finalData.push(element);
     }
   });
+  //console.log(finalData);
   res.send(finalData);
 });
 
