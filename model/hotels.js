@@ -4,7 +4,10 @@ const Schema = mongoose.Schema;
 
 const hotelSchema = new Schema({
   accomodations: String,
-  price: Number,
+  bestPrice: Number,
+  price1: Number,
+  price2: Number,
+  price3: Number,
   ammenities: String,
   location: String,
   links: String,
