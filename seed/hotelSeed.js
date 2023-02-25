@@ -62,5 +62,22 @@ const hotelSeed = async () => {
   }
 };
 
-editData();
-hotelSeed();
+//editData();
+//hotelSeed();
+
+const addCountry = async () => {
+  let name;
+
+  for (let i = 0; i < seedData.length; i++) {
+    name = seedData[i].Accomodations;
+    let mQuery = { accomodations: name };
+    //let record = await hotelSchema.find(mQuery);
+    //console.log(record);
+    let country = seedData[i].Country;
+
+    await hotelSchema.updateMany(mQuery, { country: country });
+     
+  }
+};
+
+addCountry();
