@@ -3,6 +3,8 @@ const app = express();
 const mongoose = require("mongoose");
 const flightSchema = require("../model/singleFlight");
 const singleFight = require("./singleFlights");
+const returnFlight = require("./returnFlights");
+const returnFlightSchema = require("../model/returnflight");
 
 const URL =
   "mongodb+srv://sharm591:Rankin%402023@cluster0.sbczo2p.mongodb.net/?retryWrites=true&w=majority";
@@ -18,8 +20,7 @@ mongoose
     console.log(err);
   });
 
-const addData = async () => {
-
+const singleData = async () => {
   await flightSchema.deleteMany({});
   singleFight.forEach(async (element) => {
     const sendData = new flightSchema({
@@ -33,13 +34,42 @@ const addData = async () => {
       duration: element.duration,
     });
 
-    await sendData.save().then(()=>{
-      console.log('Done');
-    }).catch(err=>{
-
-      console.log(err)
-    });
+    await sendData
+      .save()
+      .then(() => {
+        console.log("Done");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   });
 };
 
-//addData();
+//singleData();
+
+const returnData = async () => {
+  returnFlight.forEach(async (element) => {
+    const sendData = new returnFlightSchema({
+      airlines: element.airlines,
+      ammenities: element.ammenities,
+      arrival: element.arrival,
+      arrivalTime1: element.arrivalTime1,
+      arrivalTime2: element.arrivalTime2,
+      cost: element.cost,
+      departure: element.departure,
+      departureTime1: element.departureTime1,
+      departureTime2: element.departureTime2,
+      duration: element.duration,
+    });
+
+    await sendData
+      .save()
+      .then(() => {
+        console.log("Done");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+};
+//returnData();
