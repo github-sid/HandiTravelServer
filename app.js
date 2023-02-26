@@ -21,6 +21,7 @@ mongoose
 
 
 app.use(require("./router/hotels"));
+app.use(require('./router/commute'));
 
 
 app.listen(2023, () => {
