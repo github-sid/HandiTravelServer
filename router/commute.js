@@ -10,8 +10,8 @@ router.get("/commute", (req, res) => {
   const arrival = req.query.arrival;
   const departure = req.query.departure;
   const returnTrip = req.query.returnTrip;
-  const from = req.query.from;
-  const to = req.query.to;
+  const from = (req.query.from);
+  const to = (req.query.to);
   let data;
   let query;
 

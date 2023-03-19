@@ -13,6 +13,8 @@ const hotelSchema = new Schema({
   links: String,
   country: String,
   type: String,
+  distance: Number,
+  hospital: String,
 });
 
 module.exports = mongoose.model("hotel", hotelSchema);
