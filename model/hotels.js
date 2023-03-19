@@ -8,7 +8,7 @@ const hotelSchema = new Schema({
   price1: Number,
   price2: Number,
   price3: Number,
-  ammenities: String,
+  amenities: String,
   location: String,
   links: String,
   country: String,
