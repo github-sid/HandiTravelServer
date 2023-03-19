@@ -9,7 +9,7 @@ router.get("/hotel", async (req, res) => {
   const budget = Number(req.query.budget);
   const queryAmenities = req.query.disability;
 
-  //regex finds if the subString in the String 
+  //regex finds if the subString in the String
   const mongoQuery = {
     location: { $regex: location },
     bestPrice: { $lte: budget },
@@ -22,7 +22,7 @@ router.get("/hotel", async (req, res) => {
   hotelData.forEach((element) => {
     let match = 0;
     queryAmenities.forEach((amenity) => {
-      if (element.ammenities.includes(amenity)) {
+      if (element.amenities.includes(amenity)) {
         match++;
       }
     });
