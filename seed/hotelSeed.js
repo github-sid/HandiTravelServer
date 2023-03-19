@@ -98,4 +98,4 @@ const addType = async () => {
   }
 };
 
-//addType();
+addType();
