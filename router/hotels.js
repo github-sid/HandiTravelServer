@@ -4,13 +4,19 @@ const router = express.Router();
 const hotelModel = require("../model/hotels");
 
 router.get("/hotel", async (req, res) => {
-  const q = req.query;
+  //const q = req.query;
+  const location = req.query.location;
   const budget = Number(req.query.budget);
   const queryAmenities = req.query.disability;
-  console.log(queryAmenities);
-  const mongoQuery = { bestPrice: { $lte: budget } };
+
+  //regex finds if the subString in the String 
+  const mongoQuery = {
+    location: { $regex: location },
+    bestPrice: { $lte: budget },
+  };
 
   const hotelData = await hotelModel.find(mongoQuery);
+  console.log(hotelData);
   const finalData = [];
 
   hotelData.forEach((element) => {

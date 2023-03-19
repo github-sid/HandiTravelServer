@@ -4,7 +4,6 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 
-
 const url =
   "mongodb+srv://sharm591:Rankin%402023@cluster0.sbczo2p.mongodb.net/?retryWrites=true&w=majority";
 
@@ -17,15 +16,14 @@ mongoose
   })
   .catch((err) => {
     console.log(err);
-});
-
+  });
 
 app.use(require("./router/hotels"));
-app.use(require('./router/commute'));
-
+//app.use(require("./router/commute"));
+app.use(require("./router/flights"));
+app.use(require("./router/buses"));
+app.use(require("./router/bannedMedicines"));
 
 app.listen(2023, () => {
   console.log("Port 2023");
 });
-
-

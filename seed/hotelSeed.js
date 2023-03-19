@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const hotelSchema = require("../model/hotels");
-const seedData = require("./data");
+const seedData = require("./data/hotelData");
 
 const URL =
   "mongodb+srv://sharm591:Rankin%402023@cluster0.sbczo2p.mongodb.net/?retryWrites=true&w=majority";
@@ -56,14 +56,18 @@ const hotelSeed = async () => {
       price1: seedData[i].price1,
       price2: seedData[i].price2,
       price3: seedData[i].price3,
+      distance: Number(seedData[i].Distance),
+      hospital: seedData[i].Hospital,
+      country: seedData[i].Country
+
     });
 
     await seedInsert.save();
   }
 };
 
-//editData();
-//hotelSeed();
+// editData();
+// hotelSeed();
 
 const addCountry = async () => {
   let name;
@@ -94,4 +98,4 @@ const addType = async () => {
   }
 };
 
-addType();
+//addType();
